@@ -18,7 +18,7 @@ public class APIBase {
 
         if encoded! is [AnyObject] {
             var dictionary = [String:AnyObject]()
-            for (index, item) in enumerate(encoded as! [AnyObject]) {
+            for (index, item) in (encoded as! [AnyObject]).enumerate() {
                 dictionary["\(index)"] = item
             }
             return dictionary
@@ -45,7 +45,7 @@ public class RequestBuilder<T> {
     
     public func execute(completion: (response: Response<T>?, erorr: NSError?) -> Void) { }
 
-    public func addHeader(#name: String, value: String) -> Self {
+    public func addHeader(name name: String, value: String) -> Self {
         if !value.isEmpty {
             headers[name] = value
         }
